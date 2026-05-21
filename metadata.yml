@@ -1,9 +1,13 @@
 Identifier: eos9eyo
 Slug: antimicrobial-activity-hpylori
 Status: In progress
-Title: Antimicrobial activity prediction against Helicobacter pylori from public ChEMBL data
-Description: >
-  Bioactivity prediction of growth inhibition in Helicobacter pylori, trained as binary (active/inactive) classifiers from publicly available data in ChEMBL. Independent models are trained on multiple bioactivity datasets, corresponding to dose-response (MIC) assays, among others. A ranking score is provided for each model alongside a combined consensus score.
+Title: Antimicrobial activity prediction against Helicobacter pylori from public
+  ChEMBL data
+Description: Bioactivity prediction of growth inhibition in Helicobacter pylori,
+  trained as binary (active/inactive) classifiers from publicly available data 
+  in ChEMBL. Independent models are trained on multiple bioactivity datasets, 
+  corresponding to dose-response (MIC) assays, among others. A ranking score is 
+  provided for each model alongside a combined consensus score.
 Deployment:
   - Local
   - Online
@@ -18,7 +22,9 @@ Output:
   - Score
 Output Dimension: 4
 Output Consistency: Fixed
-Interpretation: Probability of antimicrobial activity against Helicobacter pylori from 3 ChEMBL-trained sub-models, plus a quality-weighted consensus score.
+Interpretation: Probability of antimicrobial activity against Helicobacter 
+  pylori from 3 ChEMBL-trained sub-models, plus a quality-weighted consensus 
+  score.
 Tag:
   - Gram-negative bacteria
   - Antimicrobial activity
@@ -33,3 +39,4 @@ Publication: https://github.com/ersilia-os/chembl-antimicrobial-models
 Source Code: https://github.com/ersilia-os/chembl-antimicrobial-models
 License: GPL-3.0-or-later
 Contributor: arnaucoma24
+Incorporation Date: '2026-05-19'
