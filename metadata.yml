@@ -1,6 +1,6 @@
 Identifier: eos9eyo
 Slug: antimicrobial-activity-hpylori
-Status: In progress
+Status: Ready
 Title: Antimicrobial activity prediction against Helicobacter pylori from public
   ChEMBL data
 Description: Bioactivity prediction of growth inhibition in Helicobacter pylori,
@@ -40,6 +40,18 @@ Source Code: https://github.com/ersilia-os/chembl-antimicrobial-models
 License: GPL-3.0-or-later
 Contributor: arnaucoma24
 Incorporation Date: '2026-05-19'
+Last Packaging Date: '2026-05-21'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos9eyo.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos9eyo
+Docker Architecture:
+  - AMD64
+  - ARM64
 Model Size: 18.0
 Environment Size: 1888.0
+Image Size: 2050.5
+Computational Performance 1: 41.53
+Computational Performance 2: 27.25
+Computational Performance 3: 26.38
+Computational Performance 4: 122.07
+Computational Performance 5: 524.79
