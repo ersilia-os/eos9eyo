@@ -1,46 +1,35 @@
 Identifier: eos9eyo
 Slug: antimicrobial-activity-hpylori
 Status: In progress
-Title: Antimicrobial activity prediction against Helicobacter pylori from public
-  ChEMBL data
-Description: Bioactivity prediction of growth inhibition in Helicobacter pylori,
-  trained as binary (active/inactive) classifiers from publicly available data 
-  in ChEMBL. Independent models are trained on multiple bioactivity datasets, 
-  corresponding to dose-response (MIC) assays, among others. A ranking score is 
-  provided for each model alongside a combined consensus score.
+Title: Antimicrobial activity prediction against Helicobacter pylori from public ChEMBL data
+Description: >
+  Bioactivity prediction of growth inhibition in Helicobacter pylori, trained as binary (active/inactive) classifiers from publicly available data in ChEMBL. Independent models are trained on multiple bioactivity datasets, corresponding to dose-response (MIC) assays, among others. A ranking score is provided for each model alongside a combined consensus score.
 Deployment:
   - Local
   - Online
-Source: Local, Online
-Source Type: Internal, Replicated, External
-Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization,
-  Projection, Similarity search, Generation
+Source: Local
+Source Type: Internal
+Task: Annotation
+Subtask: Activity prediction
 Input:
   - Compound
 Input Dimension: 1
 Output:
-  - Value
   - Score
-  - Compound
-  - Text
-Output Dimension: 1
-Output Consistency: Fixed, Variable
-Interpretation: The output of this template model should be interpreted like 
-  this.
+Output Dimension: 4
+Output Consistency: Fixed
+Interpretation: Probability of antimicrobial activity against Helicobacter pylori from 3 ChEMBL-trained sub-models, plus a quality-weighted consensus score.
 Tag:
-  - H.pylori
+  - Gram-negative bacteria
   - Antimicrobial activity
   - ChEMBL
 Biomedical Area:
-  - Biomedical Area 1
-  - Biomedical Area 2
+  - Peptic ulcer disease
 Target Organism:
-  - Target Organism 1
-  - Target Organism 2
-Publication Type: Peer reviewed, Preprint, Other
-Publication Year: 2025
-Publication: None
+  - Helicobacter pylori
+Publication Type: Other
+Publication Year: 2026
+Publication: https://github.com/ersilia-os/chembl-antimicrobial-models
 Source Code: https://github.com/ersilia-os/chembl-antimicrobial-models
 License: GPL-3.0-or-later
 Contributor: arnaucoma24
