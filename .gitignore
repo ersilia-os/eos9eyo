@@ -1,3 +1,15 @@
+# Sub-models under model/checkpoints/models/ and model/checkpoints/reports.csv
+# ship via regular git. Descriptor weights live in $HOME/.lazyqsar/ — they are
+# downloaded at install time by `lazyqsar setup` and never committed here.
+model/framework/fit/*
+!model/framework/fit/.gitkeep
+
+# Safety net: descriptor weights should NEVER land here under the v3.3.0+ flow,
+# but if a stray `lazyqsar setup --target-dir model/checkpoints/featurizer_weights_home/...`
+# is ever run against the fork, this prevents the GB-scale .onnx/.pt files from
+# slipping into a commit.
+model/checkpoints/featurizer_weights_home/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
