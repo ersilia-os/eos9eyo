@@ -1,7 +1,3 @@
-This model has been financed by Project PID2023-148309OA-I00 funded by MICIU/AEI/10.13039/501100011033 and by ERDF, EU.
-
-<img src="https://raw.githubusercontent.com/ersilia-os/ersilia/master/assets/miciu_cofinanciado.jpg" width="300">
-
 # Antimicrobial activity prediction against Helicobacter pylori from public ChEMBL data
 
 Bioactivity prediction of growth inhibition in Helicobacter pylori, trained as binary (active/inactive) classifiers from publicly available data in ChEMBL. Independent models are trained on multiple bioactivity datasets, corresponding to dose-response (MIC) assays, among others. A ranking score is provided for each model alongside a combined consensus score.
@@ -25,17 +21,18 @@ This model was incorporated on 2026-05-19.Last packaged on 2026-05-21.
 - **Input Dimension:** `1`
 
 ### Output
-- **Output Dimension:** `4`
+- **Output Dimension:** `5`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of antimicrobial activity against Helicobacter pylori from 3 ChEMBL-trained sub-models, plus a quality-weighted consensus score.
+- **Interpretation:** Probability of antimicrobial activity against Helicobacter pylori from 4 ChEMBL-trained sub-models, plus a quality-weighted consensus score.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
-| consensus_score | float | high | Tanh-transformed quality-weighted consensus probability across the 3 sub-models. Recommended threshold: 0.775. |
-| merged_mic_decoys | float | high | Probability from sub-model trained on MIC measurements merged across 4 ChEMBL assays (cutoff 10 uM; n=1070 incl. decoys). Recommended threshold: 0.874. |
-| general_mic | float | high | Probability from sub-model trained on MIC measurements aggregated across 311 ChEMBL assays (cutoff 10 uM; n=792). Recommended threshold: 0.505. |
-| general_iz | float | high | Probability from sub-model trained on inhibition zone diameter measurements aggregated across 67 ChEMBL assays (cutoff 20 mm; n=120). Recommended threshold: 0.636. |
+| consensus_score | float | high | Tanh-transformed quality-weighted consensus probability across the 4 sub-models. Recommended threshold: 0.723. |
+| merged_mic_decoys | float | high | Probability from sub-model trained on MIC measurements merged across 4 ChEMBL assays (cutoff 10 uM; n=1070 incl. decoys). Recommended threshold: 0.87. |
+| general_dose_response | float | high | Probability from sub-model trained on dose-response measurements aggregated across 4 ChEMBL assays (n=849). Recommended threshold: 0.533. |
+| general_mic | float | high | Probability from sub-model trained on MIC measurements aggregated across 311 ChEMBL assays (cutoff 10 uM; n=792). Recommended threshold: 0.522. |
+| general_iz | float | high | Probability from sub-model trained on IZ measurements aggregated across 67 ChEMBL assays (cutoff 20 mm; n=120). Recommended threshold: 0.636. |
 
 
 ### Source and Deployment
