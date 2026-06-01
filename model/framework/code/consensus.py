@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 
 _W_COLS = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
-_TANH_A, _TANH_TAU = 1.156, 6.47
+_TANH_A, _TANH_TAU = 1.2421278739876145, 10.621775439578736
 
 
 def compute_consensus(R, cols_ordered, model_names, checkpoints_dir):

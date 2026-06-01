@@ -1,4 +1,4 @@
-consensus_score,merged_mic_decoys,general_mic,general_iz
-0.7803,0.8495,0.7712,0.2919
-0.8187,0.9036,0.7962,0.2843
-0.836,0.9149,0.8234,0.2819
+consensus_score,merged_mic_decoys,general_dose_response,general_mic,general_iz
+0.7969,0.8542,0.7485,0.7692,0.2919
+0.8282,0.9025,0.7685,0.7952,0.2843
+0.847,0.9162,0.8025,0.8101,0.2819
