@@ -21,7 +21,9 @@ Output:
   - Score
 Output Dimension: 5
 Output Consistency: Fixed
-Interpretation: Probability of antimicrobial activity against Helicobacter pylori from 4 ChEMBL-trained sub-models, plus a quality-weighted consensus score.
+Interpretation: Probability of antimicrobial activity against Helicobacter 
+  pylori from 4 ChEMBL-trained sub-models, plus a quality-weighted consensus 
+  score.
 Tag:
   - Gram-negative bacteria
   - Antimicrobial activity
