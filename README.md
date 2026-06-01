@@ -2,7 +2,7 @@
 
 Bioactivity prediction of growth inhibition in Helicobacter pylori, trained as binary (active/inactive) classifiers from publicly available data in ChEMBL. Independent models are trained on multiple bioactivity datasets, corresponding to dose-response (MIC) assays, among others. A ranking score is provided for each model alongside a combined consensus score.
 
-This model was incorporated on 2026-05-19.Last packaged on 2026-05-21.
+This model was incorporated on 2026-05-19.Last packaged on 2026-06-01.
 
 ## Information
 ### Identifiers
@@ -45,12 +45,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `29`
 - **Environment Size (Mb):** `1889`
-- **Image Size (Mb):** `2050.5`
+- **Image Size (Mb):** `2061.74`
 
 **Computational Performance (seconds):**
-- 10 inputs: `41.53`
-- 100 inputs: `26.38`
-- 10000 inputs: `524.79`
+- 10 inputs: `38.24`
+- 100 inputs: `26.72`
+- 10000 inputs: `553.49`
 
 ### References
 - **Source Code**: [https://github.com/ersilia-os/chembl-antimicrobial-models](https://github.com/ersilia-os/chembl-antimicrobial-models)
