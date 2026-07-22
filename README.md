@@ -21,18 +21,14 @@ This model was incorporated on 2026-05-19.Last packaged on 2026-06-02.
 - **Input Dimension:** `1`
 
 ### Output
-- **Output Dimension:** `5`
+- **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of antimicrobial activity against Helicobacter pylori from 4 ChEMBL-trained sub-models, plus a quality-weighted consensus score.
+- **Interpretation:** Probability of antimicrobial activity against Helicobacter pylori from 1 ChEMBL-trained sub-model.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
-| consensus_score | float | high | Tanh-transformed quality-weighted consensus probability across the 4 sub-models. Recommended threshold: 0.723. |
-| merged_mic_decoys | float | high | Probability from sub-model trained on MIC measurements merged across 4 ChEMBL assays (cutoff 10 uM; n=1070 incl. decoys). Recommended threshold: 0.87. |
-| general_dose_response | float | high | Probability from sub-model trained on dose-response measurements aggregated across 4 ChEMBL assays (n=849). Recommended threshold: 0.533. |
-| general_mic | float | high | Probability from sub-model trained on MIC measurements aggregated across 311 ChEMBL assays (cutoff 10 uM; n=792). Recommended threshold: 0.522. |
-| general_iz | float | high | Probability from sub-model trained on IZ measurements aggregated across 67 ChEMBL assays (cutoff 20 mm; n=120). Recommended threshold: 0.636. |
+| chembl_dose_response_0 | float | high | Probability from sub-model trained on ChEMBL dose-response low-data catch-all pool of 101 assays (779 compounds). Recommended threshold: 0.531. |
 
 
 ### Source and Deployment
