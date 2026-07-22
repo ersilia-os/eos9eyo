@@ -1,14 +1,14 @@
-\
 """Quality-weighted consensus across LazyQSAR sub-models.
 
 Mirrors chembl-antimicrobial-models/scripts/14_consensus_scoring.py:
-- W1..W7 are per-sub-model quality weights from reports.csv.
-- W8 is a per-compound weight that ramps 0->1 above each sub-model's
+- W1..W6 are per-sub-model quality weights from reports.csv.
+- W7 is a per-compound weight that ramps 0->1 above each sub-model's
   decision_cutoff_rank.
-- All 8 weights are uniformly averaged into an effective per-compound,
+- All 7 weights are uniformly averaged into an effective per-compound,
   per-sub-model weight; the consensus is the weighted mean of prob_ranks;
-  a tanh transform then restores the IQR that averaging compresses
-  toward 0.5.
+  a tanh transform (fixed steepness k_star, solved for this pathogen by
+  scripts/12b_fit_transformation.py) then restores the IQR that averaging
+  shrinks (variance reduction).
 
 NaN policy: if any sub-model returns NaN for a given compound, that
 compound's consensus_score is NaN (no weighting, no averaging). The
@@ -20,8 +20,8 @@ import os
 import numpy as np
 import pandas as pd
 
-_W_COLS = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
-_TANH_A, _TANH_TAU = 1.2421278739876145, 10.621775439578736
+_W_COLS = ["w1", "w2", "w3", "w4", "w5", "w6"]
+_K_STAR = None
 
 
 def compute_consensus(R, cols_ordered, model_names, checkpoints_dir):
@@ -61,18 +61,22 @@ def compute_consensus(R, cols_ordered, model_names, checkpoints_dir):
     if (~nan_rows).any():
         pr = prob_ranks[~nan_rows]
         c  = np.clip(cutoffs[np.newaxis, :], 0.0, 1.0 - 1e-9)
-        w8 = np.where(pr <= c, 0.0, (pr - c) / (1.0 - c))
+        w7 = np.where(pr <= c, 0.0, (pr - c) / (1.0 - c))
 
         n_good = pr.shape[0]
         n_w    = len(_W_COLS) + 1
         w_all = np.empty((n_good, M, n_w))
         w_all[:, :, :len(_W_COLS)] = w_quality
-        w_all[:, :,  len(_W_COLS)] = w8
+        w_all[:, :,  len(_W_COLS)] = w7
         w_eff = np.average(w_all, axis=-1, weights=np.ones(n_w))
 
-        raw = (pr * w_eff).sum(axis=1) / w_eff.sum(axis=1)
-        k   = 2.0 * (1.0 + _TANH_A * (1.0 - np.exp(-M / _TANH_TAU)))
-        consensus[~nan_rows] = 0.5 + 0.5 * np.tanh(k * (raw - 0.5)) / np.tanh(k / 2)
+        denom = w_eff.sum(axis=1)
+        with np.errstate(invalid="ignore", divide="ignore"):
+            raw = (pr * w_eff).sum(axis=1) / denom
+        zero = denom == 0.0          # all weights 0 for a compound -> fall back to plain mean
+        if zero.any():
+            raw[zero] = pr[zero].mean(axis=1)
+        consensus[~nan_rows] = 0.5 + 0.5 * np.tanh(_K_STAR * (raw - 0.5)) / np.tanh(_K_STAR / 2)
 
     results = np.round(np.column_stack([consensus, prob_ranks]), 4)
     header  = ["consensus_score", *model_names]
