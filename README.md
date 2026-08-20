@@ -1,6 +1,6 @@
 # Antimicrobial activity prediction against Helicobacter pylori from public ChEMBL data
 
-Estimates activity against Helicobacter pylori, the gastric coloniser behind most peptic ulcers and a recognised cause of gastric cancer, where eradication regimens increasingly fail through clarithromycin resistance. Only one dose-response assay pool from ChEMBL held enough data to support a classifier, so this prediction has no ensemble behind it. The organism's requirement for acidic conditions also means standard broth screening translates imperfectly to the gastric niche.
+Bioactivity prediction of growth inhibition in Helicobacter pylori, trained as binary (active/inactive) classifiers from publicly available data in ChEMBL. Independent models are trained on multiple bioactivity datasets, corresponding to dose-response (MIC) assays, among others. A ranking score is provided for each model alongside a combined consensus score.
 
 This model was incorporated on 2026-05-19.Last packaged on 2026-07-22.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2026-05-19.Last packaged on 2026-07-22.
 ### Output
 - **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of Helicobacter pylori growth inhibition from a single ChEMBL-trained model.
+- **Interpretation:** Probability of antimicrobial activity against Helicobacter pylori from 1 ChEMBL-trained sub-model.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
