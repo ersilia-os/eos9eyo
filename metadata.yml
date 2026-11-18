@@ -47,8 +47,8 @@ Docker Architecture:
   - AMD64
   - ARM64
 Apptainer: https://models-sif.s3.eu-north-1.amazonaws.com/eos9eyo_v4.sif
-Model Size: 24.0
-Environment Size: 7982.0
+Model Size: 37.0
+Environment Size: 7923.0
 Image Size: 8006.42
 Computational Performance 1: 37.36
 Computational Performance 2: 28.19
