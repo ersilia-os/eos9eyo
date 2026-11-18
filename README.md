@@ -41,8 +41,8 @@ Below are the **Output Columns** of the model:
 - **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos9eyo_v4.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos9eyo_v4.sif)
 
 ### Resource Consumption
-- **Model Size (Mb):** `24`
-- **Environment Size (Mb):** `7982`
+- **Model Size (Mb):** `37`
+- **Environment Size (Mb):** `7923`
 - **Image Size (Mb):** `8006.42`
 
 **Computational Performance (seconds):**
